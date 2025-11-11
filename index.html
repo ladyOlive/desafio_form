@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <style>
+    /* estilos gerais */
+    body {
+      background-color: #f4f7f6;
+      font-family: Arial, sans-serif;
+    }
+
+    /* títulos */
+    .font48 {
+      font-size: 48px;
+      font-weight: bold;
+    }
+    
+    .font36 {
+      font-size: 36px;
+      font-weight: bold;
+    }
+
+    /* layout do formulário */
+    .page-orcamento {
+      padding: 40px 0;
+    }
+    .section-heading {
+      margin-bottom: 30px;
+    }
+    
+    .form-wrapper {
+      margin-bottom: 40px;
+    }
+    
+    .painel {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    /* estilo dos campos */
+    .form-style::placeholder {
+      color: transparent;
+    }
+    
+    .form-style {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #e0e0e0;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+      font-size: 16px;
+      transition: all 0.2s ease;
+    }
+
+    .label-animation {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+
+    .label-animation label {
+      position: absolute;
+      left: 16px;
+      top: 13px;
+      color: #888;
+      pointer-events: none;
+      transition: all 0.2s ease;
+      background-color: #f9f9f9;
+    }
+
+    /* animação da label flutuante */
+    .form-style:focus + label,
+    .form-style:not(:placeholder-shown) + label {
+      top: -10px;
+      left: 12px;
+      font-size: 12px;
+      color: #555;
+      background-color: #ffffff;
+      padding: 0 4px;
+    }
+
+    .form-style:focus {
+      border-color: #007bff;
+      box-shadow: none;
+      outline: none;
+      background-color: #ffffff;
+    }
+    
+    .form-style:not(:placeholder-shown) {
+        background-color: #ffffff;
+    }
+
+    /* botões de rádio (sim/não) */
+    .form-radio {
+      font-size: 16px;
+      color: #333;
+      padding-top: 8px;
+    }
+    .form-radio input[type="radio"] {
+      margin-right: 5px;
+    }
+
+    /* estilo do checkbox (política de privacidade) */
+    .wpcf7-acceptance label {
+      font-size: 14px;
+      color: #555;
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    /* esconde o checkbox original */
+    .wpcf7-acceptance input[type="checkbox"].custom-checkbox {
+      display: none;
+    }
+
+    /* desenha a nova 'caixinha' */
+    span.custom-checkbox {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 1px solid #007bff;
+      border-radius: 3px;
+      margin-right: 8px;
+      position: relative;
+      vertical-align: middle;
+    }
+
+    /* desenha o 'check' (✔) quando marcado */
+    .wpcf7-acceptance input[type="checkbox"].custom-checkbox:checked + span.custom-checkbox::after {
+      content: '✔';
+      font-size: 12px;
+      color: #007bff;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* botão enviar */
+    .secondary-btn {
+      background-color: #007bff;
+      border: none;
+      color: white;
+      padding: 12px 30px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .secondary-btn:hover {
+      background-color: #0056b3;
+    }
+    
+    /* desabilita o botão */
+    .secondary-btn:disabled {
+      background-color: #aaa;
+      cursor: not-allowed;
+    }
+
+    /* ícone de data */
+    .date-icon {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+        color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <main role="main" class="page-orcamento">
+    <section class="section-heading">
+      <div class="mw-1920 mx-auto">
+        <div class="container-xl">
+          <h1 class="font48 m-0" style="padding-top: 20px;"> Fase de Abertura Inicial
+          </h1>
+        </div>
+      </div>
+    </section>
+    
+    <div class="container">
+      <section class="form-wrapper spacing-b">
+        <div class="painel">
+          <h2 class="font36 text-black mb-4">Preencha o formulario inicial de abertura</h2>
+          <div>
+            
+            <form action="https://formspree.io/f/xldaeeba" method="POST" class="wpcf7-form init">
+              
+              <div class="row">
+                <div class="col-12 col-lg-12">
+                  <span class="wpcf7-form-control-wrap" data-name="razao-social"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-style label-animation" autocomplete="name" aria-required="true" aria-invalid="false" placeholder="Razão Social" value="" type="text" name="razao-social"><label>Razão Social</label></div></span>
+                </div>
+                <div class="col-12 col-lg-6">
+                  <span class="wpcf7-form-control-wrap" data-name="razao-social-2"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-style label-animation" aria-invalid="false" placeholder="Razão Social Opção 2" value="" type="text" name="razao-social-2"><label>Razão Social Opção 2</label></div></span>
+                </div>
+                <div class="col-12 col-lg-6">
+                  <span class="wpcf7-form-control-wrap" data-name="razao-social-3"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-style label-animation" autocomplete="name" aria-invalid="false" placeholder="Razão Social Opção 3" value="" type="text" name="razao-social-3"><label>Razão Social Opção 3</label></div></span>
+                </div>
+                <div class="col-12 col-lg-12">
+                  <span class="wpcf7-form-control-wrap" data-name="nome-fantasia"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-style label-animation" autocomplete="name" aria-required="true" aria-invalid="false" placeholder="Nome Fantasia" value="" type="text" name="nome-fantasia"><label>Nome Fantasia</label></div></span>
+                </div>
+                <div class="col-12 col-lg-4">
+                  <span class="wpcf7-form-control-wrap" data-name="telefone"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-tel wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-tel form-style label-animation" autocomplete="tel" aria-required="true" aria-invalid="false" placeholder="Telefone" value="" type="tel" name="telefone"><label>Telefone</label></div></span>
+                </div>
+                <div class="col-12 col-lg-4">
+                  <span class="wpcf7-form-control-wrap" data-name="celular"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-tel wpcf7-text wpcf7-validates-as-tel form-style label-animation" autocomplete="tel" aria-invalid="false" placeholder="Celular" value="" type="tel" name="celular"><label>Celular</label></div></span>
+                </div>
+                <div class="col-12 col-lg-4">
+                  <span class="wpcf7-form-control-wrap" data-name="email"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email form-style label-animation" autocomplete="email" aria-required="true" aria-invalid="false" placeholder="E-mail" value="" type="email" name="email"><label>E-mail</label></div></span>
+                </div>
+                <div class="col-12 col-lg-6">
+                  <span class="wpcf7-form-control-wrap" data-name="endereco"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-style label-animation" autocomplete="name" aria-required="true" aria-invalid="false" placeholder="Endereço" value="" type="text" name="endereco"><label>Endereço</label></div></span>
+                </div>
+                <div class="col-12 col-lg-2">
+                  <span class="wpcf7-form-control-wrap" data-name="numero"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-style label-animation" autocomplete="name" aria-required="true" aria-invalid="false" placeholder="N°" value="" type="text" name="numero"><label>N°</label></div></span>
+                </div>
+                <div class="col-12 col-lg-4">
+                  <span class="wpcf7-form-control-wrap" data-name="logradouro"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-style label-animation" autocomplete="name" aria-invalid="false" placeholder="Logradouro" value="" type="text" name="logradouro"><label>Logradouro</label></div></span>
+                </div>
+                <div class="col-12 col-lg-6">
+                  <span class="wpcf7-form-control-wrap" data-name="complemento"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-style label-animation" autocomplete="name" aria-invalid="false" placeholder="Complemento" value="" type="text" name="complemento"><label>Complemento</label></div></span>
+                </div>
+                <div class="col-12 col-lg-6">
+                  <span class="wpcf7-form-control-wrap" data-name="bairro"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-style label-animation" autocomplete="name" aria-invalid="false" placeholder="Bairro" value="" type="text" name="bairro"><label>Bairro</label></div></span>
+                </div>
+                <div class="col-12 col-lg-6">
+                  <span class="wpcf7-form-control-wrap" data-name="cidade"><div class="label-animation"><input size="40" maxlength="4G0" class="wpcf7-form-control wpcf7-text form-style label-animation" autocomplete="name" aria-invalid="false" placeholder="Cidade" value="" type="text" name="cidade"><label>Cidade</label></div></span>
+                </div>
+                <div class="col-12 col-lg-6">
+                  <span class="wpcf7-form-control-wrap" data-name="uf"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-style label-animation" autocomplete="name" aria-invalid="false" placeholder="UF" value="" type="text" name="uf"><label>UF</label></div></span>
+                </div>
+                <div class="col-12 col-lg-5">
+                  <span class="wpcf7-form-control-wrap" data-name="cep"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-style label-animation" autocomplete="name" aria-invalid="false" placeholder="CEP" value="" type="text" name="cep"><label>CEP</label></div></span>
+                </div>
+                <div class="col-12 col-lg-7">
+                  <span class="wpcf7-form-control-wrap" data-name="referencia"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-style label-animation" autocomplete="name" aria-invalid="false" placeholder="Referência" value="" type="text" name="referencia"><label>Referência</label></div></span>
+                </div>
+                <div class="col-12 col-lg-5">
+                  <span class="wpcf7-form-control-wrap" data-name="tipo-juridico"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-style label-animation" autocomplete="name" aria-invalid="false" placeholder="Tipo Jurídico" value="" type="text" name="tipo-juridico"><label>Tipo Jurídico</label></div></span>
+                </div>
+                <div class="col-12 col-lg-7">
+                  <span class="wpcf7-form-control-wrap" data-name="porte-da-empresa"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-style label-animation" autocomplete="name" aria-invalid="false" placeholder="Porte da Empresa" value="" type="text" name="porte-da-empresa"><label>Porte da Empresa</label></div></span>
+                </div>
+                <div class="col-12 col-lg-4">
+                  <span class="wpcf7-form-control-wrap" data-name="objetivo-social"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-style label-animation" autocomplete="name" aria-invalid="false" placeholder="Objetivo Social" value="" type="text" name="objetivo-social"><label>Objetivo Social</label></div></span>
+                </div>
+                <div class="col-12 col-lg-4">
+                  <span class="wpcf7-form-control-wrap" data-name="regime-tributario"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-style label-animation" autocomplete="name" aria-invalid="false" placeholder="Regime Tributário" value="" type="text" name="regime-tributario"><label>Regime Tributário</label></div></span>
+                </div>
+                <div class="col-12 col-lg-4">
+                  <span class="wpcf7-form-control-wrap" data-name="capital-social"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-style label-animation" autocomplete="name" aria-invalid="false" placeholder="Capital Social" value="" type="text" name="capital-social"><label>Capital Social</label></div></span>
+                </div>
+              </div>
+
+              
+<div class="col-12 col-lg-6">
+                <div class="form-radio py-2 d-flex align-items-center gap-3">
+                  <span class="">Sócio 1:</span>
+                  <div>
+                    <span class="wpcf7-form-control-wrap" data-name="socio-1-radio">
+                      <span class="wpcf7-form-control wpcf7-radio form-style radio tab-radio">
+                        <span class="wpcf7-list-item first">
+                          <input type="radio" name="socio-1-radio" value="Sim" class="socio-radio" data-target="info-socio-1">
+                          <span class="custom-radio" aria-hidden="true"></span><span class="wpcf7-list-item-label">Sim</span>
+                        </span>
+                        <span class="wpcf7-list-item last">
+                          <input type="radio" name="socio-1-radio" value="Não" class="socio-radio" data-target="info-socio-1" checked>
+                          <span class="custom-radio" aria-hidden="true"></span><span class="wpcf7-list-item-label">Não</span>
+                        </span>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div id="info-socio-1" class="row d-none">
+                <div class="col-12 col-lg-12">
+                    <span class="wpcf7-form-control-wrap" data-name="socio1-nome-completo"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-style label-animation" autocomplete="name" aria-invalid="false" placeholder="Nome Completo" value="" type="text" name="socio1-nome-completo"><label>Nome Completo</label></div></span>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <span class="wpcf7-form-control-wrap" data-name="socio1-pais"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-style label-animation" aria-invalid="false" placeholder="País" value="" type="text" name="socio1-pais"><label>País</label></div></span>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <span class="wpcf7-form-control-wrap" data-name="socio1-naturalidade"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-style label-animation" aria-invalid="false" placeholder="Naturalidade" value="" type="text" name="socio1-naturalidade"><label>Naturalidade</label></div></span>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <span class="wpcf7-form-control-wrap" data-name="socio1-estado-civil"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-style label-animation" aria-invalid="false" placeholder="Estado Civil" value="" type="text" name="socio1-estado-civil"><label>Estado Civil</label></div></span>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <span class="wpcf7-form-control-wrap" data-name="socio1-data-nascimento"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-date wpcf7-text wpcf7-validates-as-date form-style label-animation" aria-invalid="false" placeholder="dd/mm/aaaa" value="" type="text" name="socio1-data-nascimento"><label>Data de Nascimento</label><span class="date-icon">🗓️</span></div></span>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <span class="wpcf7-form-control-wrap" data-name="socio1-rg"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-style label-animation" aria-invalid="false" placeholder="RG" value="" type="text" name="socio1-rg"><label>RG</label></div></span>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <span class="wpcf7-form-control-wrap" data-name="socio1-profissao"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-style label-animation" aria-invalid="false" placeholder="Profissão" value="" type="text" name="socio1-profissao"><label>Profissão</label></div></span>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <span class="wpcf7-form-control-wrap" data-name="socio1-cep"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-style label-animation" aria-invalid="false" placeholder="CEP" value="" type="text" name="socio1-cep"><label>CEP</label></div></span>
+                </div>
+              </div>
+
+              
+<div class="col-12 col-lg-6">
+                <div class="form-radio py-2 d-flex align-items-center gap-3">
+                  <span class="">Sócio 2:</span>
+                  <div>
+                    <span class="wpcf7-form-control-wrap" data-name="socio-2-radio">
+                      <span class="wpcf7-form-control wpcf7-radio form-style radio tab-radio">
+                        <span class="wpcf7-list-item first">
+                          <input type="radio" name="socio-2-radio" value="Sim" class="socio-radio" data-target="info-socio-2">
+                          <span class="custom-radio" aria-hidden="true"></span><span class="wpcf7-list-item-label">Sim</span>
+                        </span>
+                        <span class="wpcf7-list-item last">
+                          <input type="radio" name="socio-2-radio" value="Não" class="socio-radio" data-target="info-socio-2" checked>
+                          <span class="custom-radio" aria-hidden="true"></span><span class="wpcf7-list-item-label">Não</span>
+                        </span>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div id="info-socio-2" class="row d-none">
+                <div class="col-12 col-lg-12">
+                    <span class="wpcf7-form-control-wrap" data-name="socio2-nome-completo"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-style label-animation" autocomplete="name" aria-invalid="false" placeholder="Nome Completo" value="" type="text" name="socio2-nome-completo"><label>Nome Completo</label></div></span>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <span class="wpcf7-form-control-wrap" data-name="socio2-pais"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-style label-animation" aria-invalid="false" placeholder="País" value="" type="text" name="socio2-pais"><label>País</label></div></span>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <span class="wpcf7-form-control-wrap" data-name="socio2-naturalidade"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-style label-animation" aria-invalid="false" placeholder="Naturalidade" value="" type="text" name="socio2-naturalidade"><label>Naturalidade</label></div></span>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <span class="wpcf7-form-control-wrap" data-name="socio2-estado-civil"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-style label-animation" aria-invalid="false" placeholder="Estado Civil" value="" type="text" name="socio2-estado-civil"><label>Estado Civil</label></div></span>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <span class="wpcf7-form-control-wrap" data-name="socio2-data-nascimento"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-date wpcf7-text wpcf7-validates-as-date form-style label-animation" aria-invalid="false" placeholder="dd/mm/aaaa" value="" type="text" name="socio2-data-nascimento"><label>Data de Nascimento</label><span class="date-icon">🗓️</span></div></span>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <span class="wpcf7-form-control-wrap" data-name="socio2-rg"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-style label-animation" aria-invalid="false" placeholder="RG" value="" type="text" name="socio2-rg"><label>RG</label></div></span>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <span class="wpcf7-form-control-wrap" data-name="socio2-profissao"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-style label-animation" aria-invalid="false" placeholder="Profissão" value="" type="text" name="socio2-profissao"><label>Profissão</label></div></span>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <span class="wpcf7-form-control-wrap" data-name="socio2-cep"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-style label-animation" aria-invalid="false" placeholder="CEP" value="" type="text" name="socio2-cep"><label>CEP</label></div></span>
+                </div>
+              </div>
+
+              
+<div class="col-12 col-lg-6">
+                <div class="form-radio py-2 d-flex align-items-center gap-3">
+                  <span class="">Sócio 3:</span>
+                  <div>
+                    <span class="wpcf7-form-control-wrap" data-name="socio-3-radio">
+                      <span class="wpcf7-form-control wpcf7-radio form-style radio tab-radio">
+                        <span class="wpcf7-list-item first">
+                          <input type="radio" name="socio-3-radio" value="Sim" class="socio-radio" data-target="info-socio-3">
+                          <span class="custom-radio" aria-hidden="true"></span><span class="wpcf7-list-item-label">Sim</span>
+                        </span>
+                        <span class="wpcf7-list-item last">
+                          <input type="radio" name="socio-3-radio" value="Não" class="socio-radio" data-target="info-socio-3" checked>
+                          <span class="custom-radio" aria-hidden="true"></span><span class="wpcf7-list-item-label">Não</span>
+                        </span>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div id="info-socio-3" class="row d-none">
+                <div class="col-12 col-lg-12">
+                    <span class="wpcf7-form-control-wrap" data-name="socio3-nome-completo"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-style label-animation" autocomplete="name" aria-invalid="false" placeholder="Nome Completo" value="" type="text" name="socio3-nome-completo"><label>Nome Completo</label></div></span>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <span class="wpcf7-form-control-wrap" data-name="socio3-pais"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-style label-animation" aria-invalid="false" placeholder="País" value="" type="text" name="socio3-pais"><label>País</label></div></span>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <span class="wpcf7-form-control-wrap" data-name="socio3-naturalidade"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-style label-animation" aria-invalid="false" placeholder="Naturalidade" value="" type="text" name="socio3-naturalidade"><label>Naturalidade</label></div></span>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <span class="wpcf7-form-control-wrap" data-name="socio3-estado-civil"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-style label-animation" aria-invalid="false" placeholder="Estado Civil" value="" type="text" name="socio3-estado-civil"><label>Estado Civil</label></div></span>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <span class="wpcf7-form-control-wrap" data-name="socio3-data-nascimento"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-date wpcf7-text wpcf7-validates-as-date form-style label-animation" aria-invalid="false" placeholder="dd/mm/aaaa" value="" type="text" name="socio3-data-nascimento"><label>Data de Nascimento</label><span class="date-icon">🗓️</span></div></span>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <span class="wpcf7-form-control-wrap" data-name="socio3-rg"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-style label-animation" aria-invalid="false" placeholder="RG" value="" type="text" name="socio3-rg"><label>RG</label></div></span>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <span class="wpcf7-form-control-wrap" data-name="socio3-profissao"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-style label-animation" aria-invalid="false" placeholder="Profissão" value="" type="text" name="socio3-profissao"><label>Profissão</label></div></span>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <span class="wpcf7-form-control-wrap" data-name="socio3-cep"><div class="label-animation"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-style label-animation" aria-invalid="false" placeholder="CEP" value="" type="text" name="socio3-cep"><label>CEP</label></div></span>
+                </div>
+              </div>
+
+              <div class="row my-4">
+                <div class="col-12 col-lg-6">
+                  <span class="wpcf7-form-control-wrap" data-name="politica"><span class="wpcf7-form-control wpcf7-acceptance"><span class="wpcf7-list-item"><label><input type="checkbox" name="politica" value="1" class="custom-checkbox" aria-invalid="false" id="politica-check"><span class="custom-checkbox" aria-hidden="true"></span><span class="wpcf7-list-item-label">Declaro que li a <a href="https://contabilzaniti.com.br/seguranca-e-privacidade/" class="uppercase">política de privacidade</a> e estou de acordo.</span></label></span></span></span>
+                </div>
+                <div class="col-12 col-lg-6 d-flex justify-content-lg-end justify-content-center mt-3 mt-lg-0">
+                  <input class="wpcf7-form-control wpcf7-submit has-spinner secondary-btn" id="submit-btn" type="submit" value="Enviar" disabled>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const socioRadios = document.querySelectorAll('.socio-radio');
+
+      socioRadios.forEach(radio => {
+        radio.addEventListener('change', function() {
+          const targetId = this.dataset.target;
+          const targetDiv = document.getElementById(targetId);
+
+          if (this.value === 'Sim') {
+            targetDiv.classList.remove('d-none');
+          } else {
+            targetDiv.classList.add('d-none');
+            
+            targetDiv.querySelectorAll('input[type="text"], input[type="tel"], input[type="email"], input[type="date"]').forEach(input => {
+                input.value = '';
+                
+                const label = input.nextElementSibling;
+                if (label && label.tagName === 'LABEL') {
+                    // reseta a label
+                    label.style.top = '13px';
+                    label.style.left = '16px';
+                    label.style.fontSize = '';
+                    label.style.color = '#888';
+                    label.style.backgroundColor = '#f9f9f9';
+                    label.style.padding = '0';
+                }
+                // reseta o fundo do input
+                input.style.backgroundColor = '#f9f9f9';
+            });
+          }
+        });
+      });
+
+      // verifica no carregamento
+      socioRadios.forEach(radio => {
+        if (radio.checked) {
+          radio.dispatchEvent(new Event('change'));
+        }
+      });
+
+      // labels flutuantes
+      document.querySelectorAll('.form-style').forEach(input => {
+        const label = input.nextElementSibling;
+        
+        // função para atualizar a label
+        const updateLabel = () => {
+            if (label && label.tagName === 'LABEL') {
+                if (input.value) {
+                    label.style.top = '-10px';
+                    label.style.left = '12px';
+                    label.style.fontSize = '12px';
+                    label.style.color = '#555';
+                    label.style.backgroundColor = '#ffffff';
+                    label.style.padding = '0 4px';
+                    input.style.backgroundColor = '#ffffff';
+                } else if (document.activeElement !== input) {
+                    label.style.top = '13px';
+                    label.style.left = '16px';
+                    label.style.fontSize = '';
+                    label.style.color = '#888';
+                    label.style.backgroundColor = '#f9f9f9';
+                    label.style.padding = '0';
+                    input.style.backgroundColor = '#f9f9f9';
+                }
+            }
+        };
+
+        // atualiza no 'input'
+        input.addEventListener('input', updateLabel);
+        
+        // atualiza no 'focus' (clique)
+        input.addEventListener('focus', () => {
+            if (label && label.tagName === 'LABEL') {
+                label.style.top = '-10px';
+                label.style.left = '12px';
+                label.style.fontSize = '12px';
+                label.style.color = '#007bff';
+                label.style.backgroundColor = '#ffffff';
+                label.style.padding = '0 4px';
+                input.style.backgroundColor = '#ffffff';
+            }
+        });
+        
+        // atualiza no 'blur' (clique fora)
+        input.addEventListener('blur', () => {
+            if (label && label.tagName === 'LABEL') {
+                if (input.value) {
+                    label.style.color = '#555';
+                } else {
+                    label.style.top = '13px';
+                    label.style.left = '16px';
+                    label.style.fontSize = '';
+                    label.style.color = '#888';
+                    label.style.backgroundColor = '#f9f9f9';
+                    label.style.padding = '0';
+                    input.style.backgroundColor = '#f9f9f9';
+                }
+            }
+        });
+
+        // verifica no carregamento
+        updateLabel();
+      });
+
+      /* logica do botao enviar */
+      const politicaCheck = document.getElementById('politica-check');
+      const submitBtn = document.getElementById('submit-btn');
+
+      politicaCheck.addEventListener('change', function() {
+        // 'this.checked' é true se estiver marcado, false se não
+        if (this.checked) {
+          submitBtn.disabled = false; // habilita o botão
+        } else {
+          submitBtn.disabled = true;  // desabilita o botão
+        }
+      });
+
+    });
+  </script>
+</body>
+</html>
